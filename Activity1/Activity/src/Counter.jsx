@@ -24,7 +24,7 @@ export default function Counter() {
     useEffect( function hello() { 
         console.log("Count changed:", count);
     }, [count]); // useEffect is a hook that allows you to perform side effects in function components. It takes a function as an argument and an optional array of dependencies. The function will be called after the component renders and whenever any of the dependencies change. In this case, the function will be called after every render and whenever the count state changes. The return value of the function will be ignored, so returning "Hello World" does not have any effect.
-    // if mai [] empty Array pass karunga to useEffect sirf component ke first render pe chalega (means 1st time run hoga bus), aur agar mai [count] pass karunga to useEffect count state ke change hone pe chalega. Agar mai kuch bhi pass nahi karunga to useEffect har render pe chalega.
+    // if [] mai empty Array pass karunga to useEffect sirf component ke first render pe chalega (means 1st time run hoga bus), aur agar mai [count] pass karunga to useEffect count state ke change hone pe chalega. Agar mai kuch bhi pass nahi karunga to useEffect har render pe chalega.
  
     return ( 
         <div>

@@ -10,6 +10,7 @@ export default function SearchBox({ updateWeatherData }) {
   const Api_URL = "https://api.openweathermap.org/data/2.5/weather"
   const API_KEY = import.meta.env.VITE_API_KEY;
 
+  // This function will be responsible for fetching the weather data for the new city and then calling the updateWeatherData function with the new data.
   const getWeatherInfo = async () => {
     try {
       let response = await fetch(
@@ -43,8 +44,8 @@ export default function SearchBox({ updateWeatherData }) {
   let handlesubmit = async (evt) => {
     try {
       evt.preventDefault();
-      let newinfo = await getWeatherInfo();
-      updateWeatherData(newinfo);
+      let newinfo = await getWeatherInfo(); // This will fetch the new weather data for the city entered by the user and return it as an object. We will then call the updateWeatherData function with this new data to update the state in the parent component (WeatherApp).
+      updateWeatherData(newinfo); // This will update the state in the parent component (WeatherApp) with the new weather data, which will trigger a re-render of the component and display the new weather data in the Infobox component.
       setCity("");
       seterror(false);
     } catch (error) {
@@ -56,14 +57,14 @@ export default function SearchBox({ updateWeatherData }) {
   return (
     <div className='center'>
       <h2>Search for  Weather:</h2>
-      <form onSubmit={handlesubmit}>
+      <form onSubmit={handlesubmit}> 
         <TextField
           id="city"
           label="City Name"
           variant="outlined"
           required
-          value={city}
-          onChange={handlechange}
+          value={city} // This will set the value of the text field to the city state variable, which will be updated as the user types in the text field.
+          onChange={handlechange} // This will update the city state variable with the value entered by the user in the text field.
         />
         <br />
         <br />
